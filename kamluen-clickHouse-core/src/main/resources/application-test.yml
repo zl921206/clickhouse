@@ -1,0 +1,19 @@
+dubbo:
+  version: 1.0.0
+  application:
+    #dubbo提供者的别名，只是个标识
+    id: clickhouse
+    name: clickhouse
+  protocol:
+    id: dubbo
+    #dubbo协议
+    name: dubbo
+    #duboo端口号
+    port: 20883
+  registry:
+    id: my-registry
+    #zk地址
+    address: zookeeper://192.168.10.251:2181
+    # dubbo服务发布者实现类注解@service所在的包
+  scan:
+    basePackages: com.kamluen.clickhouse.core.service.impl

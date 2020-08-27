@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+
+    <!-- 定义日志路径-->
+    <property name="logPath" value="/home/logs/bigdata/clickhouse/" />
+
+    <!-- 定义控制台日志输出 -->
+    <appender name="consoleAppender" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
+            <!--格式化输出：%d表示日期，%thread表示线程名，%-5level：级别从左显示5个字符宽度%msg：日志消息，%n是换行符-->
+            <pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{50} - %msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <!-- 记录业务日志输出 -->
+    <appender name="FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
+            <!--日志文件输出的文件名-->
+            <FileNamePattern>${logPath}/%d{yyyyMMdd}/clickhouse_%d{yyyyMMdd}_%i.log</FileNamePattern>
+            <!--日志文件保留天数-->
+            <maxHistory>0</maxHistory>
+            <!--日志文件大于500MB时自动切换-->
+            <maxFileSize>500MB</maxFileSize>
+        </rollingPolicy>
+        <encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
+            <!-- 定义日志文件输出格式 -->
+            <pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{50} - %msg%n</pattern>
+            <!-- 定义日志文件编码 -->
+            <charset>utf-8</charset>
+        </encoder>
+    </appender>
+    <logger name="druid" level="INFO">
+        <appender-ref ref="FILE" />
+    </logger>
+    <!-- 定义日志文件输出级别 -->
+    <root level="INFO">
+        <!-- 引入控制台日志文件输出 -->
+        <appender-ref ref="consoleAppender"/>
+        <!-- 引入系统业务日志文件输出 -->
+        <appender-ref ref="FILE"/>
+    </root>
+
+</configuration>
