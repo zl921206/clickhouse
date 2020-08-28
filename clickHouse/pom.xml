@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>2.2.8.RELEASE</version>
+    </parent>
+
+	<groupId>com.bigdata</groupId>
+    <artifactId>clickHouse</artifactId>
+	<version>SNAPSHOT</version>
+    <packaging>pom</packaging>
+	
+    <modules>
+        <module>clickHouse-api</module>
+        <module>clickHouse-core</module>
+    </modules>
+
+    <properties>
+        <lombok.version>1.18.12</lombok.version>
+        <log4j-version>1.2.17</log4j-version>
+        <json-lib-version>2.4</json-lib-version>
+        <persistence-version>1.0.2</persistence-version>
+        <fastjson-version>1.2.73</fastjson-version>
+        <zkclient-version>0.11</zkclient-version>
+        <zookeeper-version>3.6.1</zookeeper-version>
+        <clickhouse-jdbc-version>0.2.4</clickhouse-jdbc-version>
+        <dubbo-spring-boot-version>0.2.0</dubbo-spring-boot-version>
+        <druid-spring-boot-version>1.1.10</druid-spring-boot-version>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+        <maven.compiler.target>1.8</maven.compiler.target>
+        <maven.compiler.source>1.8</maven.compiler.source>
+        <java.version>1.8</java.version>
+    </properties>
+
+    <!-- https://mvnrepository.com/artifact/org.projectlombok/lombok -->
+    <dependencies>
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>${lombok.version}</version>
+            <scope>provided</scope>
+        </dependency>
+    </dependencies>
+
+</project>

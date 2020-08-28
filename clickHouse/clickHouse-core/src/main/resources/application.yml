@@ -1,0 +1,33 @@
+spring:
+  profiles:
+    active:
+  devtools:
+    restart:
+      enabled: false
+  datasource:
+    type: com.alibaba.druid.pool.DruidDataSource
+    druid:
+      maxActive: 200
+      maxWait: 1000
+      minIdle: 10
+      removeAbandoned: true
+      removeAbandonedTimeout: 60
+      connectionProperties: clientEncoding=UTF-8
+      timeBetweenEvictionRunsMillis: 30000
+      minEvictableIdleTimeMillis: 60000
+      validationQuery: select 1
+      #申请连接的时候检测，建议配置为true，不影响性能，并且保证安全性
+      testWhileIdle: true
+      #获取连接时执行检测，建议关闭，影响性能
+      testOnBorrow: false
+      #归还连接时执行检测，建议关闭，影响性能
+      testOnReturn: false
+      #是否开启PSCache，PSCache对支持游标的数据库性能提升巨大，oracle建议开启，mysql下建议关闭
+      poolPreparedStatements: false
+      #开启poolPreparedStatements后生效
+      maxPoolPreparedStatementPerConnectionSize: 20
+
+    driver-class-name: ru.yandex.clickhouse.ClickHouseDriver
+    url: jdbc:clickhouse://127.0.0.1:8123
+    username:
+    password:
