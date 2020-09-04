@@ -7,10 +7,25 @@ import java.sql.*;
  */
 public class DBUtil {
 
+    /**
+     * 数据库连接URL
+     */
     public static String URL;
+    /**
+     * 数据库连接用户名
+     */
     public static String USERNAME;
+    /**
+     * 数据库连接密码
+     */
     public static String PASSWORD;
+    /**
+     * 驱动
+     */
     public static String DIREVER;
+    /**
+     * 是否加载驱动标记
+     */
     private static boolean loadDriver;
 
     static void loadDriver() {
